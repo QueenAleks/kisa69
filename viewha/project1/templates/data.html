@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}All Data{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div>
+        <h1 class="text-center"><b>All Data</b></h1>
+    </div>
+
+    <p>&nbsp;</p>
+
+    <dl class="dl-horizontal">
+      <dd>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>data</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for r in all_records %}
+                <tr>
+                    <td>{{ r.id }}</td>
+                    <td>{{ r }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+      </dd>
+    </dl>
+</div>
+{% endblock %}

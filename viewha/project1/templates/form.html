@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Add some data{% endblock %}
+
+{% block content %}
+<div class="container">
+  <form id="dynamic-form" action="add/" method="POST" onsubmit='return onSubmit(t)'>
+    {% csrf_token %}
+    <div class="input-group">
+        <input type="text" name="field[]" placeholder="Some data" required>
+    </div>
+    <button type="button" id="add-field">Add field</button>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $(document).ready(function() {
+        let inputCount = 1;
+
+        $('#add-field').click(function() {
+            
+            const newInput = `<div class="input-group">
+                                <input type="text" name="field[]" placeholder="Some data ${inputCount}" required>
+                              </div>`;
+            inputCount++;
+            $('#dynamic-form').append(newInput);
+        });
+    });
+</script>
+{% endblock %}

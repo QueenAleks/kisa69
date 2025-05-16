@@ -1,29 +1,37 @@
-# README #
+# ИНСТРУКЦИЯ ПО РАЗВЁРТЫВАНИЮ #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+1. Склонируйте репозиторий и перейдите в папку.
+```
+git clone https://bitbucket.org/QueenAleks/kisa69.git
+cd kisa69/
+```
 
-### What is this repository for? ###
+2. Создайте виртуальное окружение и установите необходимые библиотеки.
+```
+python3 -m venv venv
+source venv/bin/activate
+pip3 install -r requirements.txt
+```
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+3. Перед следующим шагом установите PostgreSQL и создайте в ней новую базу данных и нового пользователя с правами доступа к этой базе (или дайте права уже существующему пользователю).
 
-### How do I get set up? ###
+4. Создайте в папке проекта файл .env со следующим содержимым:
+```
+DB_NAME=название бд
+DB_USER=пользователь бд
+DB_PASSWORD=пароль
+DB_HOST=хост бд
+DB_PORT=порт бд
+```
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+5. Выполните миграции.
+```
+python3 viewha/manage.py migrate
+```
 
-### Contribution guidelines ###
+6. Запустите сервер.
+```
+python3 viewha/manage.py runserver
+```
 
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+7. Перейдите в браузере по адресу http://127.0.0.1:8000/ и пользуйтесь приложением.

@@ -7,10 +7,10 @@
   <form id="dynamic-form" action="add/" method="POST" onsubmit='return onSubmit(t)'>
     {% csrf_token %}
     <div class="input-group">
-        <input type="text" name="field[]" placeholder="Some data" required>
+        <input class="form-control" type="text" name="field[]" placeholder="Some data" required>
     </div>
-    <button type="button" id="add-field">Add field</button>
-    <button type="submit">Submit</button>
+    <button class="btn" type="button" id="add-field">Add field</button>
+    <button class="btn btn-primary" type="submit">Submit</button>
   </form>
 </div>
 {% endblock %}
@@ -23,7 +23,7 @@
         $('#add-field').click(function() {
             
             const newInput = `<div class="input-group">
-                                <input type="text" name="field[]" placeholder="Some data ${inputCount}" required>
+                                <input class="form-control" type="text" name="field[]" placeholder="Some data ${inputCount}" required>
                               </div>`;
             inputCount++;
             $('#dynamic-form').append(newInput);

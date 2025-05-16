@@ -2,7 +2,7 @@
 
 1. Склонируйте репозиторий и перейдите в папку.
 ```
-git clone https://bitbucket.org/QueenAleks/kisa69.git
+git clone https://github.com/QueenAleks/kisa69.git
 cd kisa69/
 ```
 
